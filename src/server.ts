@@ -11,6 +11,10 @@ const upload = multer({ dest: 'uploads/' });
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.status(200).send('OK');
+});
+
 app.post('/tts', handleTTS);
 app.post('/stt', upload.single('audio'), handleSTT);
 
